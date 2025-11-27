@@ -1,0 +1,1151 @@
+/* ========================================================================
+   === 1. FONT FACE DECLARATION & VARIABLES ===
+   ======================================================================== */
+
+/* Kantumruy Pro (Existing in your file) */
+@font-face {
+    font-family: 'Kantumruy Pro';
+    src: url('fonts/KantumruyPro-Regular.woff2') format('woff2'),
+         url('fonts/KantumruyPro-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap; 
+}
+
+@font-face {
+    font-family: 'Kantumruy Pro';
+    src: url('fonts/KantumruyPro-Bold.woff2') format('woff2'),
+         url('fonts/KantumruyPro-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+/* Battambang (Added for Gold Card) */
+@font-face {
+  font-family: 'Battambang';
+  src: url('fonts/Battambang.woff2') format('woff2'),
+       url('fonts/Battambang.woff') format('woff'),
+       url('fonts/Battambang.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* Moul (Added for Gold Card Headings) */
+@font-face {
+  font-family: 'Moul';
+  src: url('fonts/Moul-Regular.woff2') format('woff2'),
+       url('fonts/Moul-Regular.woff') format('woff'),
+       url('fonts/Moul-Regular.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+/* Basic Reset and Variables for Blue & Gold UI */
+:root {
+    --primary-gradient: linear-gradient(90deg, #1f4287 0%, #3e64ff 100%); 
+    --accent-color: #ffc107; /* Gold color for highlights */
+    --background-color: #0d1a2f; 
+    --surface-color: #1a2a43; 
+    --text-color: #f0f0f0;
+    --light-text-color: #a0b2d0;
+    --border-radius: 10px;
+    --shadow-light: 0 4px 10px rgba(0, 0, 0, 0.2);
+    --shadow-deep: 0 8px 25px rgba(0, 0, 0, 0.5);
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Poppins', 'Kantumruy Pro', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-color);
+    /* កំណត់ផ្ទៃខាងក្រោយជាតម្លាភាព (transparent) ដើម្បីមើលឃើញវីដេអូ */
+    background-color: transparent; 
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+    /* បន្ថែម background-image fallback សម្រាប់ពេលវីដេអូមិនដំណើរការ */
+    background-image: linear-gradient(180deg, #0d1a2f 0%, #1a2a43 100%);
+    background-attachment: fixed;
+}
+
+/* សម្រាប់ពេលដែលភាសាខ្មែរ Active (ប្រសិនបើប្រើ Kantumruy Pro) */
+.lang-khmer-active {
+    font-family: 'Kantumruy Pro', var(--font-body);
+}
+
+
+/* ========================================================================
+   === 2. VIDEO BACKGROUND & PARTICLES ===
+   ======================================================================== */
+
+.bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover; /* ធានាថាវីដេអូលាតពេញអេក្រង់ដោយមិនខូចទ្រង់ទ្រាយ */
+    z-index: -2; /* ដាក់វានៅខាងក្រោយខ្លឹមសារ និង Particles */
+    opacity: 0.5; /* កាត់បន្ថយពន្លឺបន្តិច */
+}
+
+/* Overlay ខ្មៅសម្រាប់ពង្រឹងការអាន */
+.video-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4); /* Black overlay */
+    z-index: -1;
+}
+
+/* Particle Container (កំណត់ z-index ឱ្យខ្ពស់ជាងវីដេអូ) */
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* ដាក់វានៅលើវីដេអូ/Overlay ប៉ុន្តែក្រោម Content */
+}
+
+/* Global scrollbar style */
+body::-webkit-scrollbar {
+    width: 8px;
+}
+body::-webkit-scrollbar-thumb {
+    background-color: #3e64ff;
+    border-radius: 4px;
+}
+body::-webkit-scrollbar-track {
+    background-color: #0d1a2f;
+}
+
+/* Utility Classes */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.section-heading {
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: 2.5em;
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--text-color);
+}
+
+
+/* ========================================================================
+   === 3. HEADER/NAVBAR (Desktop) ===
+   ======================================================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background-color: rgba(13, 26, 47, 0.8); 
+    box-shadow: var(--shadow-deep);
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.brand-logo {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+.logo {
+    font-size: 1.5em;
+    font-weight: 800;
+    color: var(--accent-color);
+    text-transform: uppercase;
+}
+
+.nav-menu {
+    display: flex; /* Default Desktop Display */
+    gap: 30px;
+}
+
+.nav-link {
+    color: var(--light-text-color);
+    font-weight: 600;
+    padding: 5px 0;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--text-color);
+    border-bottom: 2px solid var(--accent-color);
+}
+
+.nav-buttons {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.language-switcher {
+    color: var(--light-text-color);
+    font-size: 0.9em;
+    cursor: pointer;
+    display: flex;
+    gap: 5px;
+    order: 2;
+}
+.active-lang {
+    color: var(--accent-color);
+    font-weight: 700;
+    
+}
+
+.nav-login {
+    color: var(--light-text-color);
+    padding: 8px 15px;
+    border-radius: var(--border-radius);
+    transition: background-color 0.3s;
+}
+.nav-login:hover {
+    background-color: var(--surface-color);
+    color: var(--text-color);
+}
+
+.button-primary {
+    background: var(--primary-gradient);
+    color: var(--text-color);
+    padding: 10px 20px;
+    border-radius: var(--border-radius);
+    font-weight: 700;
+    box-shadow: var(--shadow-light);
+    transition: transform 0.3s, opacity 0.3s;
+}
+.button-primary:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+.button-primary.large {
+    padding: 15px 30px;
+    font-size: 1.1em;
+}
+
+/* Mobile Menu Button (Initially hidden on desktop) */
+.mobile-menu-button {
+    display: none;
+}
+
+/* ========================================================================
+   === 4. SECTION STYLES (Content Backgrounds) ===
+   ======================================================================== */
+/* ផ្នែកនីមួយៗត្រូវការផ្ទៃខាងក្រោយរឹង លើកលែងតែ Hero */
+
+.section, header {
+    position: relative;
+    z-index: 1;
+}
+.section-gold{
+    color: var(--text-color);
+    font-family: var( --font-body);
+    font-size: 2em;
+    font-weight: 800;
+    /*text-align: right;
+    */margin-top: -650px;
+    margin-right: 50px;
+    position: absolute;
+    right: 7%;
+    /* bottom: 70%; */
+}
+.hero-section {
+    background: transparent; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 150px 5% 80px;
+    min-height: 100vh;
+    gap: 10px;
+}
+
+.hero-content {
+    width: 50%;
+}
+
+.hero-heading {
+    font-size: 3.5em;
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-subtext {
+    font-size: 1.2em;
+    color: var(--light-text-color);
+    margin-bottom: 40px;
+}
+
+.hero-image-mockup {
+    width: 450px; 
+    height: 720px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent !important; 
+    box-shadow: none !important;
+    padding: 0 !important; 
+    border: none !important;
+    margin-top:100px;
+
+}
+
+.stats-section {
+    padding: 50px 5%;
+    background-color: var(--surface-color); 
+    border-radius: 0 0 50px 50px;
+    box-shadow: var(--shadow-deep);
+    margin-bottom: 80px;
+}
+
+.stats-grid {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    text-align: center;
+}
+
+.stat-item {
+    flex-basis: 22%;
+    padding: 10px;
+}
+
+.stat-number {
+    font-size: 2.5em;
+    font-weight: 900;
+    color: var(--accent-color);
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 0.9em;
+    color: var(--light-text-color);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.features-section {
+    background: transparent; 
+    padding: 80px 5%;
+    text-align: center;
+}
+
+.feature-grid {
+    background: transparent; 
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.feature-card {
+    
+    background-color: var(--surface-color);
+    border-radius: var(--border-radius);
+    padding: 30px;
+    flex-basis: 30%;
+    box-shadow: var(--shadow-light);
+    border: 1px solid transparent;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    border-color: #3e64ff;
+}
+
+.highlighted-card {
+    border: 2px solid var(--accent-color);
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(255, 193, 7, 0.2);
+}
+
+.icon-placeholder {
+    width: 50px;
+    height: 50px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    margin: 0 auto 20px;
+}
+
+.feature-card h3 {
+    color: var(--accent-color);
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+.account-benefits {
+    list-style: none;
+    text-align: left;
+    margin: 20px 0;
+    color: var(--light-text-color);
+}
+.account-benefits li {
+    padding: 5px 0;
+    position: relative;
+    padding-left: 20px;
+}
+.account-benefits li::before {
+    content: '✓';
+    color: #4CAF50;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+.button-secondary {
+    background-color: transparent;
+    color: #3e64ff;
+    border: 2px solid #3e64ff;
+    padding: 10px 20px;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    transition: background-color 0.3s, color 0.3s;
+    margin-top: 20px;
+    display: inline-block;
+}
+.button-secondary:hover {
+    background-color: #3e64ff;
+    color: var(--text-color);
+}
+
+.course-section {
+    padding: 80px 5%;
+    text-align: center;
+    background-color:#0d1a2fc0; 
+}
+
+.course-section-subtext {
+    color: var(--light-text-color);
+    margin-bottom: 40px;
+    font-size: 1.1em;
+}
+
+.course-card-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.course-card {
+    background-color: var(--surface-color);
+    border-radius: var(--border-radius);
+    padding: 25px;
+    flex-basis: 30%;
+    box-shadow: var(--shadow-light);
+    border: 1px solid var(--surface-color);
+    transition: box-shadow 0.3s;
+}
+
+.course-card-highlight {
+    border: 2px solid #3e64ff;
+    background-color: #2a3a54;
+}
+
+.card-icon-placeholder {
+    font-size: 3em;
+    margin-bottom: 15px;
+}
+
+.course-price-tag {
+    margin: 15px 0 20px;
+}
+
+.price-current {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-right: 10px;
+}
+
+.price-old-small {
+    text-decoration: line-through;
+    color: var(--light-text-color);
+    font-size: 0.9em;
+}
+
+.button-secondary.small-btn {
+    padding: 8px 15px;
+    font-size: 0.9em;
+}
+
+.team-section {
+    padding: 80px 5%;
+    text-align: center;
+    background-color: #0d1a2f7c; 
+}
+
+.team-subtext {
+    color: var(--light-text-color);
+    margin-bottom: 50px;
+    font-size: 1.1em;
+}
+
+.team-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.team-member-card {
+    background-color: var(--surface-color);
+    border-radius: var(--border-radius);
+    padding: 25px;
+    flex-basis: 30%;
+    box-shadow: var(--shadow-deep);
+}
+
+.profile-placeholder {
+    width: 100px;
+    height: 100px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    border: 3px solid #3e64ff;
+}
+
+.team-member-card h3 {
+    color: var(--text-color);
+    margin-bottom: 5px;
+    font-size: 1.4em;
+}
+
+.team-role {
+    color: var(--accent-color);
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.team-bio {
+    color: var(--light-text-color);
+    font-size: 0.95em;
+}
+
+.footer-cta {
+    padding: 80px 5%;
+    text-align: center;
+    background: var(--primary-gradient);
+    border-radius: 50px 50px 0 0;
+}
+
+.cta-content h2 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.cta-content p {
+    font-size: 1.2em;
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+.download-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.app-store-placeholder,
+.google-play-placeholder {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    border-radius: var(--border-radius);
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.app-store-placeholder:hover,
+.google-play-placeholder:hover {
+    background-color: #000;
+}
+
+/* ========================================================================
+   === 5. GOLD PRICE CARD EMBEDDED STYLES ===
+   ======================================================================== */
+.embedded-gold-card {
+  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  border-radius: 15px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  position: relative;
+  max-height: 640px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
+.topbar-gold {
+  background: linear-gradient(to right, #004a99, #0066cc); 
+  height: 14%;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+.logo-box-gold {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 10px;
+}
+.logo-box-gold img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    margin-top: -50px;
+    gap: 10px;
+    /* margin: -10% 1% 3% 5%; */
+    background-color: #ffffff;
+    padding: 1px;
+    border-radius: 10%;
+    border: 3px solid var(--accent-color);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+.h2-mor {
+   display: flex; 
+   align-items: center;
+    justify-content: center;
+  /* margin: 3% 5% 0% 0%; */
+  color: #000000;
+  font-size: 15px; 
+  font-family: 'Kantumruy Pro';
+}
+.h1-mor {
+    display: flex; 
+    align-items: center;
+     justify-content: center;
+  font-size: 25px; 
+  color: #0066cc;
+  font-weight: 800;
+  font-family: 'Battambang';
+}
+.gold-box-main {
+  background: linear-gradient(135deg, #005aab, #0066cc); 
+  color: #ffffff;
+  padding: 15px;
+  border-radius: 15px;
+  margin: 15px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+.gold-box-main h3 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  margin-top: 0;
+  color: var(--accent-color);
+  font-family: 'Moul';
+  font-size: 20px; 
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.5);
+  padding-bottom: 8px;
+  margin-bottom: 20px;
+}
+.date-gold {
+    text-align: center;
+  margin-bottom: 15px;
+  font-size: 18px; 
+  font-family: 'Kantumruy Pro';
+  line-height: 1.6;
+}
+.highlight-gold {
+    
+  color: var(--accent-color);
+  font-weight: 600;
+}
+.embedded-gold-card table {
+    text-align: center;
+  width: 100%;
+  color: #ffffff;
+  font-size: 18px; 
+  font-weight: 500;
+  border-collapse: separate;
+  border-spacing: 0 5px;
+  font-family: 'Kantumruy Pro';
+}
+.embedded-gold-card table td {
+  width: 33%;
+  padding: 5px 3px;
+  border-radius: 6px;
+  background-color: rgba(0, 0, 0, 0.2);
+  vertical-align: top;
+}
+.embedded-gold-card table td:first-child {
+    border-right: 1px solid rgba(255, 255, 255, 0.3);
+}
+.embedded-gold-card table td:last-child {
+    border-left: 1px solid rgba(255, 255, 255, 0.3);
+}
+.embedded-gold-card #barPrice,
+.embedded-gold-card #phiPrice,
+.embedded-gold-card #nutiemPrice {
+    color: var(--accent-color);
+    display: block;
+    font-size: 30px; 
+    font-weight: 800;
+    margin-top: 3px;
+    padding: 5%;
+    font-family: 'Kantumruy Pro';
+}
+.footer-gold {
+
+    width: 450px;
+    height: 120px;
+  margin-top: 10px;
+  margin-bottom: -10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #0066cc;
+  color: #fff;
+  padding: 8px 10px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  font-family: 'Kantumruy Pro';
+  box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.3);
+  padding: 8px 10px;
+
+}
+.contact-gold {
+  text-align: left;
+  line-height: 1.3;
+}
+.contact-gold p {
+    margin: 0;
+}
+.contact-gold p:nth-child(1), .contact-gold p:nth-child(2) {
+    font-size: 11px;
+}
+.footer-gold .phone-gold {
+    
+  font-size: 20px; 
+  font-weight: bold;
+  color: var(--accent-color);
+}
+.footer-gold img {
+  width: 65px; 
+  border-radius: 8px;
+  padding: 3px;
+  background: #fff;
+}
+/* ----------------------------------------------*/
+/* hero-subtext Animation*/
+.hero-subtext {
+  font-size: 20px;
+  max-width: 100%;        /* responsive */
+  margin: 50px auto;
+  padding: 10px;
+  /* text-align: center; */
+  white-space: pre-wrap;  /* auto wrap */
+  overflow: hidden;
+  line-height: 1.5;
+  /* border-right: 2px solid rgba(0,0,0,0.75); cursor effect */
+}
+
+/* blinking cursor at the end */
+.hero-subtext.blink::after {
+  content: '';
+  display: inline-block;
+  width: 2px;
+  height: 1em;
+  background-color: rgba(255, 251, 251, 0);
+  animation: blink 0.7s infinite;
+  vertical-align: bottom;
+}
+/* .hero-subtext {
+  animation: 
+    typewriter 5s steps(50) 1s 1 normal both, 
+    blinkingCursor 500ms steps(50) infinite normal;
+} */
+
+@keyframes blink {
+  0%, 50%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0; }
+}
+
+/* ========================================================================
+   === 6. RESPONSIVE DESIGN (Media Queries) ===
+   ======================================================================== */
+
+/* --- Tablet Devices (Max Width 1024px) --- */
+@media (max-width: 1024px) {
+    .navbar {
+        padding: 15px 3%;
+    }
+
+    .hero-heading {
+        font-size: 3em;
+    }
+
+    .hero-image-mockup {
+        width: 400px;
+        height: 500px;
+    }
+
+    .stats-grid, .feature-grid, .course-card-grid, .team-grid {
+        gap: 20px;
+    }
+    
+    .feature-card, .course-card, .team-member-card {
+        flex-basis: 45%; 
+    }
+    
+    .stats-grid {
+        flex-wrap: wrap;
+    }
+    .stat-item {
+        flex-basis: 48%; 
+        margin-bottom: 15px;
+    }
+    
+    .highlighted-card {
+        transform: none; 
+    }
+    .section-gold{
+    color: var(--text-color);
+    font-family: var( --font-body);
+    font-size: 2em;
+    font-weight: 800;
+    margin-top: -650px;
+    margin-right: 50px;
+    position: absolute;
+    right: 3%;
+    bottom: 70%;
+    }
+    /* 3. Gold Card Mockup on Mobile */
+    .hero-image-mockup {
+        width: 100%; 
+        max-width: 350px; 
+        max-height: 500px;
+        padding: 10px 0;
+    }
+    .embedded-gold-card {
+        max-width: 100%; 
+        
+        height: 570px; 
+    }
+    .logo-box-gold img {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100px;
+        margin-top: -50px;
+        width: 80px; 
+        margin-top: -55px;
+
+    }
+    .logo-box-gold h1 {
+        font-size: 16px;
+    }
+    .embedded-gold-card #barPrice,
+    .embedded-gold-card #phiPrice,
+    .embedded-gold-card #nutiemPrice {
+        font-size: 18px; 
+    }
+    .footer-gold{
+        width: 100%;
+        /* height: 100%; */
+        margin-top: 10px;
+        margin-bottom: -10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+         
+        max-width: 400px;
+        max-height: 200px; 
+        margin-bottom: 50%;
+        margin-left: 0;
+    }
+
+
+}
+
+
+/* --- Mobile Devices (Max Width 768px) --- */
+@media (max-width: 768px) {
+    
+    .section-heading {
+        font-family: 'Kantumruy Pro', sans-serif;
+        font-size: 2em;
+    }
+
+    .navbar {
+        padding: 25px 5%;
+        flex-wrap: wrap;
+    }
+
+    .mobile-menu-button {
+        display: block;
+        margin-left: auto;
+    }
+
+    /* -----------------------
+       MOBILE DROPDOWN MENU
+       ----------------------- */
+    .nav-menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        width: 100%;
+        text-align: center;
+
+        position: absolute;
+        top: 100%;
+        left: 0;
+
+        max-height: 0;
+        opacity: 0;
+        pointer-events: none;
+        overflow: hidden;
+
+        background: rgba(13, 26, 47, 0.98);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+
+        transition: max-height 0.35s ease, opacity 0.35s ease;
+        z-index: 999;
+    }
+
+    .nav-menu.active {
+        max-height: 360px;
+        opacity: 1;
+        pointer-events: auto;
+        padding: 12px 0 20px;
+    }
+
+    .nav-link {
+        padding: 12px 0;
+        width: 100%;
+        border-bottom: 1px solid rgba(255,255,255,0.15);
+        color: #fff;
+    }
+
+    /* -----------------------
+       MAKE nav-buttons
+       LOOK INSIDE MENU
+       ----------------------- */
+
+    .nav-buttons {
+    position: relative;   /* remove fixed */
+    top: auto;
+    right: auto;
+    
+    display: flex;
+    flex-direction: row;      /* horizontal row */
+    justify-content: center;  /* ចំកណ្តាលជួរ */
+    align-items: center;
+
+    width: 100%;
+    margin-top: 1px;
+    gap: 10px;               /* ចន្លោះតូច */
+    }
+    .button-primary{
+        font-size: 14px;
+        padding: 5px 8px;
+        width: auto;          /* ត្រឡប់ទៅ auto */
+        text-align: center;
+        border-radius: 6px;
+    }
+
+    /* Buttons same size */
+    /* .language-switcher{
+
+        text-align: center;
+        border-radius: 6px;
+    }
+    .button-primary {
+        font-size: 14px;
+        padding: 10px 16px;
+        width: 100%;
+        text-align: center;
+        border-radius: 6px;
+    }
+
+    .language-switcher {
+        display: flex;
+        justify-content: center;
+        gap: 3px;
+        background: rgba(255,255,255,0.1);
+        color: #fff;
+    } */
+
+    /* Hide nav-buttons on desktop */
+    .navbar .nav-buttons {
+        display: flex;
+    }
+
+    /* Show nav-buttons ONLY when menu open */
+    .nav-menu.active .nav-buttons {
+        display: flex;
+    }
+
+    /* 2. Hero Section Stack */
+    .section-gold{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    position: relative;
+    margin-top: 60px;
+    margin-right: -50px;
+    font-size: 1.5em;
+    
+    }
+    .hero-section {
+        background: transparent; 
+        flex-direction: column;
+        align-items: center;
+        padding: 150px 3% 80px;
+        min-height: 100vh;
+        gap: 10%;
+        min-height: auto;
+    }
+    .hero-content {
+        margin-bottom: -30px;
+        width: 100%;
+        text-align: center;
+    }
+    .hero-heading {
+        text-align: center;
+        font-size: 2.2em;
+    }
+    .hero-subtext {
+        font-size: 1em;
+        
+    }
+    .hero-cta-group {
+        display: flex;
+        justify-content: center;
+    }
+
+    /* 3. Gold Card Mockup on Mobile */
+    .hero-image-mockup {
+        width: 100%; 
+        max-width: 350px; 
+        max-height: 500px;
+        padding: 10px 0;
+    }
+    .embedded-gold-card {
+        max-width: 100%; 
+        
+        height: 570px; 
+    }
+    .logo-box-gold img {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100px;
+        margin-top: -50px;
+        width: 80px; 
+        margin-top: -55px;
+
+    }
+    .logo-box-gold h1 {
+        font-size: 16px;
+    }
+    .embedded-gold-card #barPrice,
+    .embedded-gold-card #phiPrice,
+    .embedded-gold-card #nutiemPrice {
+        font-size: 18px; 
+    }
+    .footer-gold{
+        width: 100%;
+        /* height: 100%; */
+        margin-top: 10px;
+        margin-bottom: -10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+         
+        max-width: 400px;
+        max-height: 200px; 
+        margin-bottom: 50%;
+        margin-left: 0;
+    }
+    /* .teleQR{
+        height: 10%;
+    }
+     */
+    /* 4. Section Stacking */
+    .stats-section {
+        border-radius: 0;
+        margin-bottom: 40px;
+        padding: 30px 5%;
+    }
+    .stats-grid {
+        flex-direction: column;
+    }
+    .stat-item {
+        flex-basis: 100%;
+        padding: 10px 0;
+        border-bottom: 1px solid #2a3a54;
+    }
+    .stat-item:last-child {
+        border-bottom: none;
+    }
+    .stat-number {
+        font-size: 2em;
+    }
+    
+    /* 5. Card Stacking (Features, Courses, Team) */
+    .feature-grid, .course-card-grid, .team-grid {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .feature-card, .course-card, .team-member-card {
+        flex-basis: 100%;
+    }
+
+    /* 6. Footer CTA */
+    .footer-cta {
+        border-radius: 0;
+        padding: 50px 5%;
+    }
+    .cta-content h2 {
+        font-size: 1.8em;
+    }
+    .download-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+}

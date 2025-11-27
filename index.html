@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market X Trader - Trade the Future</title>
+    <link rel="stylesheet" href="style.css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <div id="particles-js"></div> 
+
+    <header class="navbar fade-in">
+        <div class="logo-container">
+            <img src="Logo/MT.png" alt="Market X Trader Logo" class="brand-logo">
+            <div class="logo">Market X Trader</div>
+        </div>
+        
+        <nav class="nav-menu">
+            <a href="#hero-section" class="nav-link" id="nav-link-1">Home</a>
+            <a href="#features-section" class="nav-link" id="nav-link-2">Accounts</a> 
+            <a href="#course-section" class="nav-link" id="nav-link-3">Courses</a>
+            <a href="#team-section" class="nav-link" id="nav-link-4">Our Team</a> </nav>
+        
+        <div class="nav-buttons">
+            <div class="language-switcher">
+                <span class="lang-kh">ខ្មែរ</span>
+                <span>/</span>
+                <span class="lang-eng active-lang">ENG</span>
+            </div>
+            
+            <a href="#" class="nav-login" id="nav-login">Sign In</a>
+            <a href="#" class="button-primary" id="nav-cta">Start Trading</a>
+        </div>
+    </header>
+
+    <section class="hero-section fade-in" id="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-heading" id="hero-heading">The market offers opportunities every day.</h1>
+            <p class="hero-subtext" id="hero-subtext">We can identify chances in the market and turn them into profits.</p>
+            <div class="hero-cta-group">
+                <a href="#" class="button-primary large" id="hero-cta-large">Start Trading Now</a>
+            </div>
+
+        </div>
+            <div class="section-gold">
+                <h3 id="section-heading-gold">Price For Today</h3>
+            </div>
+        <div class="hero-image-mockup">
+            <div class="embedded-gold-card" id="captureCard">
+                <div class="topbar-gold"></div>
+                <div class="logo-box-gold">
+                    <img src="Logo/MT.png" alt="logo">
+                </div>
+                <div>
+                    <h2 class="h2-mor">Good Morning!!</h2>
+                    <h1 class="h1-mor">All Customer</h1>
+                </div>
+
+                <div class="gold-box-main">
+                    <h3>តម្លៃហាងឆេងមាសប្រចាំថ្ងៃ</h3>
+                    <div class="date-gold">
+                        កាលបរិច្ឆេទ : <span id="date"></span><br>
+                        ម៉ោងចេញផ្សាយ : <span id="time-post" class="highlight-gold"></span><br>
+                        ម៉ោងបច្ចុប្បន្ន : <span id="time" class="highlight-gold"></span>
+                    </div>
+                    <table>
+                        <tr>
+                            <td>១ អោន <br><span id="barPrice">$0</span></td>
+                            <td>១ ជី <br><span id="phiPrice">$0</span></td>
+                            <td>១ ដំឡឹង <br><span id="nutiemPrice">$0</span></td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="footer-gold">
+                    <div class="contact-gold">
+                        <p>ទំនាក់ទំនងមកយើងខ្ញុំតាមរយៈ</p>
+                        <p>លេខទូរស័ព្ទ និង តេលេក្រាម</p>
+                        <p class="phone-gold">014 993 177</p>
+                    </div>
+                    <div class="teleQR">
+                        <img src="Logo/teleQR.png" alt="qr">
+                    </div>
+                </div>
+            </div>
+            </div>
+
+    </section>
+<!-- <section class="stats-section fade-in">
+        <div class="stats-grid">
+            <div class="stat-item">
+                <h2 class="stat-number" id="stat-1-num">100B+</h2>
+                <p class="stat-label" id="stat-1-label">Daily Trading Volume</p>
+            </div>
+            <div class="stat-item">
+                <h2 class="stat-number" id="stat-2-num">0.5 ms</h2>
+                <p class="stat-label" id="stat-2-label">Execution Speed</p>
+            </div>
+            <div class="stat-item">
+                <h2 class="stat-number" id="stat-3-num">99.9%</h2>
+                <p class="stat-label" id="stat-3-label">Platform Uptime</p>
+            </div>
+            <div class="stat-item">
+                <h2 class="stat-number" id="stat-4-num">500K+</h2>
+                <p class="stat-label" id="stat-4-label">Active Traders</p>
+            </div>
+        </div>
+    </section> -->
+    <section class="features-section fade-in" id="features-section">
+        <h2 class="section-heading" id="section-heading-features">Choose your path to mastery.</h2>
+        <div class="feature-grid">
+            
+            <div class="feature-card">
+                <div class="icon-placeholder"></div>
+                <h3 id="account-1-title">Standard Account</h3>
+                <p id="account-1-body">Best for beginners. Low minimum deposit and comprehensive educational resources.</p>
+                <ul class="account-benefits">
+                    <li id="acc-1-b1">Spreads from 1.5 pips</li>
+                    <li id="acc-1-b2">0% Commission</li>
+                    <li id="acc-1-b3">Demo Account Access</li>
+                </ul>
+                <a href="#" class="button-secondary" id="account-1-cta">Open Standard</a>
+            </div>
+            
+            <div class="feature-card highlighted-card">
+                <div class="icon-placeholder"></div>
+                <h3 id="account-2-title">Pro Account</h3>
+                <p id="account-2-body">Designed for active traders. Tight spreads and dedicated account manager.</p>
+                <ul class="account-benefits">
+                    <li id="acc-2-b1">Spreads from 0.8 pips</li>
+                    <li id="acc-2-b2">Low Commission ($3/Lot)</li>
+                    <li id="acc-2-b3">Market Analyst Webinars</li>
+                </ul>
+                <a href="#" class="button-primary" id="account-2-cta">Upgrade to Pro</a>
+            </div>
+            
+            <div class="feature-card">
+                <div class="icon-placeholder"></div>
+                <h3 id="account-3-title">VIP Elite</h3>
+                <p id="account-3-body">For institutional and high-volume traders. Deepest liquidity and custom support.</p>
+                <ul class="account-benefits">
+                    <li id="acc-3-b1">Spreads from 0.0 pips</li>
+                    <li id="acc-3-b2">Negotiable Commission</li>
+                    <li id="acc-3-b3">Dedicated API Access</li>
+                </ul>
+                <a href="#" class="button-secondary" id="account-3-cta">Contact Sales</a>
+            </div>
+            
+        </div>
+    </section>
+
+    <section class="course-section fade-in" id="course-section">
+        <h2 class="section-heading" id="course-heading">Unlock Your Success with Our Trading Courses.</h2>
+        <p class="course-section-subtext" id="course-subtext">Choose the course level that matches your current trading expertise and goals.</p>
+
+        <div class="course-card-grid">
+            
+            <div class="course-card">
+                <div class="card-icon-placeholder">📚</div>
+                <h3 id="c-feat-1">The Foundation: Beginner Mastery</h3>
+                <p class="course-card-desc">Start your journey with foundational strategies and risk management essentials.</p>
+                <div class="course-price-tag">
+                    <span class="price-current">$99</span>
+                    <span class="price-old-small">$199</span>
+                </div>
+                <a href="#" class="button-secondary small-btn" id="course-cta-1">View Details</a>
+            </div>
+            
+            <div class="course-card course-card-highlight">
+                <div class="card-icon-placeholder">🚀</div>
+                <h3 id="c-feat-2">The X Formula: Advanced Trading</h3>
+                <p class="course-card-desc">Master advanced technical analysis, market psychology, and proprietary indicators.</p>
+                <div class="course-price-tag">
+                    <span class="price-current">$199</span>
+                    <span class="price-old-small">$499</span>
+                </div>
+                <a href="#" class="button-primary small-btn" id="course-cta-2">Enroll Now (Best Value)</a>
+            </div>
+            
+            <div class="course-card">
+                <div class="card-icon-placeholder">🤖</div>
+                <h3 id="c-feat-3">Elite Mentorship: Algorithmic Edge</h3>
+                <p class="course-card-desc">Access high-level mentorship, algorithmic strategies, and live trading sessions.</p>
+                <div class="course-price-tag">
+                    <span class="price-current">$499</span>
+                    <span class="price-old-small">$799</span>
+                </div>
+                <a href="#" class="button-secondary small-btn" id="course-cta-3">Join Elite</a>
+            </div>
+
+        </div>
+        </section>
+
+    <section class="team-section fade-in" id="team-section">
+        <h2 class="section-heading" id="team-heading">Meet Our Leadership Team</h2>
+        <p class="team-subtext" id="team-subtext">The experts guiding Market X Trader to deliver innovation and reliability.</p>
+
+        <div class="team-grid">
+            
+            <div class="team-member-card">
+                <div class="profile-placeholder" id="team-photo-1"></div>
+                <h3 id="team-name-1">Mr. Sotheara Kim</h3>
+                <p class="team-role" id="team-role-1">Chief Executive Officer (CEO)</p>
+                <p class="team-bio" id="team-bio-1">Over 15 years of experience in FinTech and capital markets. Driving the vision for global trading access.</p>
+            </div>
+
+            <div class="team-member-card">
+                <div class="profile-placeholder" id="team-photo-2"></div>
+                <h3 id="team-name-2">Ms. Lina Heng</h3>
+                <p class="team-role" id="team-role-2">Chief Technology Officer (CTO)</p>
+                <p class="team-bio" id="team-bio-2">Leading the development of our ultra-low latency trading platform and proprietary algorithms.</p>
+            </div>
+
+            <div class="team-member-card">
+                <div class="profile-placeholder" id="team-photo-3"></div>
+                <h3 id="team-name-3">Dr. Sokun Visal</h3>
+                <p class="team-role" id="team-role-3">Chief Risk Officer (CRO)</p>
+                <p class="team-bio" id="team-bio-3">A PhD in Quantitative Finance, ensuring robust risk management and regulatory compliance.</p>
+            </div>
+            
+        </div>
+    </section>
+    <footer class="footer-cta fade-in">
+        <div class="cta-content">
+            <h2 id="cta-heading">Ready to define your X?</h2>
+            <p id="cta-body">Download the Market X Trader app and secure your future.</p>
+            <div class="download-buttons">
+                <span class="app-store-placeholder">App Store</span>
+                <span class="google-play-placeholder">Google Play</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="script.js"></script> 
+    
+    <script>
+        // Date & Time
+        function updateDateTime() {
+            const now = new Date();
+            const date = now.toLocaleDateString("en-GB");
+            const time = now.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+            document.getElementById("date").innerText = date;
+            document.getElementById("time-post").innerText = '9:00 ព្រឹក';
+            document.getElementById("time").innerText = time;
+        }
+
+        function formatValue(value) {
+            if (typeof value === "number") return Math.floor(value);
+            if (typeof value === "string") return value.split(".")[0];
+            return value;
+        }
+
+        async function loadGoldPrice() {
+            const url = "https://script.google.com/macros/s/AKfycbxW_WSe6CtMLPzdvgnWe_V_Uy5BLEinCb9OmylVOwfqR61CawoPmF1bmDn-HRVOyy9V/exec";
+            try {
+                const res = await fetch(url);
+                const data = await res.json();
+
+                document.getElementById("barPrice").innerText = "$ " + formatValue(data.bar);
+                document.getElementById("phiPrice").innerText = "$ " + formatValue(data.phi);
+                document.getElementById("nutiemPrice").innerText = "$ " + formatValue(data.nutiem);
+            } catch (err) {
+                console.error("Error loading data", err);
+            }
+        }
+
+        // ចាប់ផ្តើម load & auto-refresh
+        document.addEventListener('DOMContentLoaded', () => {
+            updateDateTime();
+            setInterval(updateDateTime, 60000);
+            loadGoldPrice();
+            setInterval(loadGoldPrice, 60000);
+        });
+
+    </script>
+</body>
+</html>
