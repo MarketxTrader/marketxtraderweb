@@ -1,0 +1,153 @@
+@font-face {
+    font-family: 'Moul';
+    src: url('Moul-Regular.woff2') format('woff2'),
+        url('Moul-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Kantumruy Pro';
+    src: url('KantumruyPro-BoldItalic.woff2') format('woff2'),
+        url('KantumruyPro-BoldItalic.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Kantumruy Pro';
+    src: url('KantumruyPro-Bold.woff2') format('woff2'),
+        url('KantumruyPro-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Kantumruy Pro';
+    src: url('KantumruyPro-ExtraLight.woff2') format('woff2'),
+        url('KantumruyPro-ExtraLight.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Kantumruy Pro';
+    src: url('KantumruyPro-ExtraLightItalic.woff2') format('woff2'),
+        url('KantumruyPro-ExtraLightItalic.woff') format('woff');
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Kantumruy Pro';
+    src: url('KantumruyPro-Italic.woff2') format('woff2'),
+        url('KantumruyPro-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Kantumruy Pro';
+    src: url('KantumruyPro-Light.woff2') format('woff2'),
+        url('KantumruyPro-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Kantumruy Pro';
+    src: url('KantumruyPro-LightItalic.woff2') format('woff2'),
+        url('KantumruyPro-LightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Kantumruy Pro';
+    src: url('KantumruyPro-MediumItalic.woff2') format('woff2'),
+        url('KantumruyPro-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Kantumruy Pro';
+    src: url('KantumruyPro-Medium.woff2') format('woff2'),
+        url('KantumruyPro-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Kantumruy Pro';
+    src: url('KantumruyPro-Regular.woff2') format('woff2'),
+        url('KantumruyPro-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Kantumruy Pro';
+    src: url('KantumruyPro-SemiBold.woff2') format('woff2'),
+        url('KantumruyPro-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Kantumruy Pro';
+    src: url('KantumruyPro-SemiBoldItalic.woff2') format('woff2'),
+        url('KantumruyPro-SemiBoldItalic.woff') format('woff');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Kantumruy Pro';
+    src: url('KantumruyPro-Thin.woff2') format('woff2'),
+        url('KantumruyPro-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Kantumruy Pro';
+    src: url('KantumruyPro-ThinItalic.woff2') format('woff2'),
+        url('KantumruyPro-ThinItalic.woff') format('woff');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Kantumruy Pro';
+    src: url('KantumruyPro-Italic.woff2') format('woff2'),
+        url('KantumruyPro-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Kantumruy Pro';
+    src: url('KantumruyPro-Regular.woff2') format('woff2'),
+        url('KantumruyPro-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
