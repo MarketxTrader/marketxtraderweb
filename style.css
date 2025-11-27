@@ -425,7 +425,6 @@ body::-webkit-scrollbar-track {
     position: absolute;
     left: 0;
 }
-
 .button-secondary {
     background-color: transparent;
     color: #3e64ff;
