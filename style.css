@@ -573,15 +573,12 @@ body::-webkit-scrollbar-track {
 }
 
 .footer-cta {
-    padding: 80px 5%;
+    margin-top: 100px;
+    padding: 60px 5%;
     text-align: center;
-    background: var(--primary-gradient);
+    background: #0d237b53;
     border-radius: 50px 50px 0 0;
-}
-
-.cta-content h2 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
+    box-shadow: var(--shadow-deep);
 }
 
 .cta-content p {
@@ -596,11 +593,10 @@ body::-webkit-scrollbar-track {
     gap: 20px;
 }
 
-.app-store-placeholder,
-.google-play-placeholder {
+.register-placeholder {
     display: inline-block;
     padding: 12px 25px;
-    background-color: var(--background-color);
+    background-color: var(--accent-color);
     color: var(--text-color);
     border-radius: var(--border-radius);
     font-weight: 700;
@@ -608,8 +604,7 @@ body::-webkit-scrollbar-track {
     transition: background-color 0.3s;
 }
 
-.app-store-placeholder:hover,
-.google-play-placeholder:hover {
+.register-placeholder:hover {
     background-color: #000;
 }
 
@@ -1164,7 +1159,7 @@ body::-webkit-scrollbar-track {
     .cta-content h2 {
         font-size: 1.8em;
     }
-    .download-buttons {
+    .register-placeholder {
         flex-direction: column;
         gap: 15px;
     }

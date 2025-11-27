@@ -148,8 +148,15 @@ const translations = {
     'team-bio-3': { 'ENG': 'A PhD in Quantitative Finance, ensuring robust risk management and regulatory compliance.', 'KH': 'បណ្ឌិតផ្នែកហិរញ្ញវត្ថុបរិមាណ (Quantitative Finance) ធានានូវការគ្រប់គ្រងហានិភ័យរឹងមាំ និងការអនុលោមតាមបទប្បញ្ញត្តិ។' },
     
     // CTA Footer
-    'cta-heading': { 'ENG': 'Ready to define your X?', 'KH': 'ត្រៀមខ្លួនរួចរាល់ហើយដើម្បីកំណត់ X របស់អ្នក?' },
-    'cta-body': { 'ENG': 'Download the Market X Trader app and secure your future.', 'KH': 'ទាញយកកម្មវិធី Market X Trader ហើយធានាអនាគតរបស់អ្នក។' }
+    'cta-heading': { 
+        'ENG': 'Start looking for your market opportunity in the forex market now?', 
+        'KH': 'កុំបង្អង់យូរ! ឱកាសទីផ្សារ Forex កំពុងរង់ចាំអ្នក?' 
+    },
+    'cta-body': { 
+        'ENG': 'Register with the Market X Trader and find your opportunity.', 
+        'KH': 'ចុះឈ្មោះជាមួយ Market X Trader ឥឡូវនេះ ដើម្បីចាប់យកជោគវាសនាហិរញ្ញវត្ថុរបស់អ្នក។' 
+    },
+    'cta-register': { 'ENG': 'Register Now', 'KH': 'ចុះឈ្មោះឥឡូវនេះ' },
 };
 
 // Function to update the content based on the selected language
@@ -244,20 +251,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // === 3.4. Scroll Animation (Fade-In) ===
-    const sections = document.querySelectorAll('section, header');
+    // 📌 ចំណុចកែ៖ បន្ថែម 'footer' ទៅក្នុង selector
+    const sections = document.querySelectorAll('section, header, footer'); // 👈 កែសម្រួលនៅទីនេះ
     const observerOptions = { root: null, rootMargin: '0px', threshold: 0.1 };
 
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('visible');
+                // 📌 កែសម្រួល៖ បន្ថែម observer.unobserve(entry.target); ដើម្បីបញ្ឈប់ការតាមដាន
+                observer.unobserve(entry.target); 
             }
         });
     }, observerOptions);
 
-    sections.forEach(section => {
-        section.classList.add('fade-in'); 
-        observer.observe(section);
+    // 📌 កែសម្រួល៖ ឥឡូវ sections គឺជា sections, header, និង footer
+    sections.forEach(element => { 
+        element.classList.add('fade-in'); 
+        observer.observe(element);
     });
 
     // === 3.5. Nav Bar Highlighting Logic ===
