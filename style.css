@@ -384,12 +384,13 @@ body::-webkit-scrollbar-track {
 .feature-card:hover {
     transform: translateY(-10px);
     border-color: #3e64ff;
+    box-shadow: 0 10px 30px rgba(255, 193, 7, 0.2);
 }
 
 .highlighted-card {
-    border: 2px solid var(--accent-color);
+    /* border: 2px solid var(--accent-color); */
     transform: scale(1.05);
-    box-shadow: 0 10px 30px rgba(255, 193, 7, 0.2);
+    /* box-shadow: 0 10px 30px rgba(255, 193, 7, 0.2); */
 }
 
 .icon-placeholder {
@@ -470,8 +471,8 @@ body::-webkit-scrollbar-track {
 }
 
 .course-card-highlight {
-    border: 2px solid #3e64ff;
-    background-color: #2a3a54;
+    /* border: 2px solid #3e64ff; */
+    background-color: var(--surface-color);
 }
 
 .card-icon-placeholder {
@@ -527,14 +528,33 @@ body::-webkit-scrollbar-track {
     box-shadow: var(--shadow-deep);
 }
 
-.profile-placeholder {
+/* .profile-placeholder {
     width: 100px;
     height: 100px;
     background-color: var(--accent-color);
     border-radius: 50%;
     margin: 0 auto 15px;
     border: 3px solid #3e64ff;
+} */
+.profile-border {
+    width: 200px;
+    height: 200px;
+    border: 3px solid #3e64ff;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    overflow: hidden; /* បិទរូបនៅក្រៅ border */
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+
+.profile-border img {
+    width: 100%; /* ប្តូរទំហំរូប */
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
 
 .team-member-card h3 {
     color: var(--text-color);
@@ -766,6 +786,7 @@ body::-webkit-scrollbar-track {
   padding: 3px;
   background: #fff;
 }
+
 /* ----------------------------------------------*/
 /* hero-subtext Animation*/
 .hero-subtext {

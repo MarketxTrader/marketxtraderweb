@@ -122,20 +122,20 @@ const translations = {
     
     // Course 2 (Advanced)
     'c-feat-2': { 'ENG': 'The X Formula: Advanced Trading', 'KH': 'រូបមន្ត X៖ ការជួញដូរកម្រិតខ្ពស់' },
-    'course-cta-2': { 'ENG': 'Enroll Now (Best Value)', 'KH': 'ចុះឈ្មោះឥឡូវនេះ (តម្លៃល្អបំផុត)' },
+    'course-cta-2': { 'ENG': 'Coming Soon', 'KH': 'មកឆាប់ៗនេះ' },
 
     // Course 3 (Expert/Mentorship)
     'c-feat-3': { 'ENG': 'Elite Mentorship: Algorithmic Edge', 'KH': 'ការណែនាំពិសេស៖ គែម Algorithmic' },
-    'course-cta-3': { 'ENG': 'Join Elite', 'KH': 'ចូលរួមក្រុម Elite' },
+    'course-cta-3': { 'ENG': 'Coming Soon', 'KH': 'មកឆាប់ៗនេះ' },
 
     // Team Section
     'team-heading': { 'ENG': 'Meet Our Leadership Team', 'KH': 'ជួបជាមួយក្រុមអ្នកដឹកនាំរបស់យើង។' },
     'team-subtext': { 'ENG': 'The experts guiding Market X Trader to deliver innovation and reliability.', 'KH': 'អ្នកជំនាញដែលដឹកនាំ Market X Trader ដើម្បីផ្តល់នូវភាពច្នៃប្រឌិត និងភាពជឿជាក់។' },
 
     // Member 1
-    'team-name-1': { 'ENG': 'Mr. Sotheara Kim', 'KH': 'លោក គឹម សុធារ៉ា' },
-    'team-role-1': { 'ENG': 'Chief Executive Officer (CEO)', 'KH': 'នាយកប្រតិបត្តិ (CEO)' },
-    'team-bio-1': { 'ENG': 'Over 15 years of experience in FinTech and capital markets. Driving the vision for global trading access.', 'KH': 'មានបទពិសោធន៍ជាង ១៥ ឆ្នាំក្នុងវិស័យ FinTech និងទីផ្សារមូលធន។ ជំរុញទស្សនវិស័យសម្រាប់ការជួញដូរទូទាំងពិភពលោក។' },
+    'team-name-1': { 'ENG': 'Mr. Noy Vathana', 'KH': 'លោក ណយ វឌ្ឍនា' },
+    'team-role-1': { 'ENG': '(CEO)', 'KH': 'នាយកប្រតិបត្តិ (CEO)' },
+    'team-bio-1': { 'ENG': 'Experienced in Forex, specializing in fundamental market and gold analysis.', 'KH': 'មានបទពិសោធក្នុងវិស័យ Forex និងជំនាញក្នុងការវិភាគមូលដ្ឋានទីផ្សារ និងមាស' },
 
     // Member 2
     'team-name-2': { 'ENG': 'Ms. Lina Heng', 'KH': 'កញ្ញា ហេង លីណា' },
