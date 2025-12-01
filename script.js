@@ -30,7 +30,7 @@ function formatValue(value) {
 // Function to fetch the gold price data from the Google Web App
 async function loadGoldPrice() {
     // The URL of your Google Sheets Web App
-    const url = "https://script.google.com/macros/s/AKfycbxW_WSe6CtMLPzdvgnWe_V_Uy5BLEinCb9OmylVOwfqR61CawoPmF1bmDn-HRVOyy9V/exec";
+    const url = "https://script.google.com/macros/s/AKfycbxW_WSe6CtMLPzdvgnWe_V_Uy5BLEinCb9OmylVOVfqR61CawoPmF1bmDn-HRVOyy9V/exec";
     
     try {
         const res = await fetch(url);
@@ -304,7 +304,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const langSwitcher = document.querySelector('.language-switcher');
     
     // Set default language on load
-    updateContent('ENG'); 
+    updateContent('KH'); // <-- MODIFIED: Set default language to Khmer
 
     if (langSwitcher) {
         langSwitcher.addEventListener('click', () => {
